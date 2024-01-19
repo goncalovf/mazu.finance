@@ -9,14 +9,20 @@ body {
   background: rgba(212,244,255,1);
   background: linear-gradient(45deg, rgba(233,219,255,1) 0%, rgba(212,244,255,1) 35%, rgba(233,219,255,1) 100%);
   background-size: 150% 150%;
-  -webkit-animation: BgGradientAnimation 10s ease infinite;
-  -moz-animation: BgGradientAnimation 10s ease infinite;
-  animation: BgGradientAnimation 10s ease infinite;
+  -webkit-animation: BgGradientAnimationMobile 10s ease infinite;
+  -moz-animation: BgGradientAnimationMobile 10s ease infinite;
+  animation: BgGradientAnimationMobile 10s ease infinite;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   font-family: 'Lato', sans-serif;
+
+  @include bp(medium) {
+    -webkit-animation: BgGradientAnimation 10s ease infinite;
+    -moz-animation: BgGradientAnimation 10s ease infinite;
+    animation: BgGradientAnimation 10s ease infinite;
+  }
 }
 
 @-webkit-keyframes BgGradientAnimation {
@@ -34,6 +40,23 @@ body {
   50% { background-position: 100% 9% }
   100% { background-position: 0% 92% }
 }
+
+@-webkit-keyframes BgGradientAnimationMobile {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+@-moz-keyframes BgGradientAnimationMobile {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+@keyframes BgGradientAnimationMobile {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
 
 .twitter-icon {
   height: 25px;
@@ -125,9 +148,10 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
+  margin-bottom: 1rem;
 
   @include bp(medium) {
-    margin-bottom: 5rem;
+    margin-bottom: 0;
   }
 
   &__launch-notice {
